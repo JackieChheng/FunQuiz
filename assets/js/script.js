@@ -1,0 +1,1 @@
+var time = document.getElementById('time')
