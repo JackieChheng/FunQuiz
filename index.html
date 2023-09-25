@@ -1,25 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css"/>
-    <title>Fun Quiz!</title>
-</head>
-<body>
-    <header class="header">
-        <h3>View High Scores</h3>
-        <h3 id="time" class="time"></h3>
-    </header>
-    <section>
-        <h1>Coding Quiz Challenge</h1>
-        <p>Try to answer the following code-related questions within the time limit
-            Keep in mind that incorrect answers will penalize your score/time 
-            by ten seconds!
-        </p>
-        <button id="btn" class="btn"> Start Here</button>
-     </section>
-
-     <script src="./assets/js/script.js"></script>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./assets/css/style.css"/>
+        <title>Fun Quiz!</title>
+    </head>
+    <body>
+        <header class="header">
+            <h3>View High Scores</h3>
+            <h3 id="time" class="time"></h3>
+        </header>
+        <section id="preQuiz">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit
+                Keep in mind that incorrect answers will penalize your score/time 
+                by ten seconds!
+            </p>
+            <button id="btn" class="btn"> Start Here</button>
+        </section>
+        <section id="quizQuestions" style="display: none;">
+            <div>
+                <p>Commonly used data types DO not Include:</p>
+                <button id="correct"class="btn answers">1. strings</button>
+                <button id="wrong1" class="btn answers">2. booleans</button>
+                <button id="wrong2" class="btn answers">3. alerts</button>
+                <button id="wrong3" class="btn answers">4. numbers </button>
+            </div>
+        </section>
+        <div id="failureMessage" style="display: none;">
+        <p>You failed!</p>
+    </div>
+        <script src="./assets/js/script.js"></script>
+    </body>
+    </html>

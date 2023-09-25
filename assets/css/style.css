@@ -41,5 +41,16 @@ p{
   }
 
 .btn:hover{
+    color: white;
     background-color: #AB47BC;
 }
+
+.btn.answers{
+    background-color: #AB47BC;
+    transition: background-color 0.3s ease;
+}
+.btn.answers:hover {
+    background-color: #aa47bc75;
+    color:black;
+}
+
