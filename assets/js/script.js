@@ -1,8 +1,11 @@
 var timerEl = document.getElementById('time');
 var startButton = document.getElementById('btn');
 var quizQuestions = document.getElementById('quizQuestions');
+var quizQuestions2 = document.getElementById('quizQuestions2');
 var preQuiz = document.getElementById('preQuiz');
 var correctButton = document.getElementById('correct'); 
+var wrongMessage = document.getElementById('wrongMessage')
+var correctMessage = document.getElementById('correctMessage')
 var wrongButton1 = document.getElementById('wrong1'); 
 var wrongButton2 = document.getElementById('wrong2');
 var wrongButton3 = document.getElementById('wrong3');
@@ -30,7 +33,8 @@ function countdown() {
 
 function handleCorrectAnswer() {
     quizQuestions.style.display = 'none';
-    // quizQuestions2.style.display = 'block';
+    quizQuestions2.style.display = 'block';
+    correctMessage.style.display = 'block';
 }
 
 function handleWrongAnswer() {
@@ -42,6 +46,8 @@ function handleWrongAnswer() {
     }
 
     quizQuestions.style.display = 'none';
+    quizQuestions2.style.display = 'block';
+    wrongMessage.style.display = 'block';
 
     timerEl.textContent = 'Time Left: ' + currentTime + 's';
 }

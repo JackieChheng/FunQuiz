@@ -29,6 +29,11 @@ p{
     padding-right: 10%;
 }
 
+.answer {
+    border-top: grey 2px;
+    color:grey;
+}
+
 .btn {
     display:block;
     padding: 10px 30px;
@@ -46,6 +51,8 @@ p{
 }
 
 .btn.answers{
+    position: relative;
+    margin: 10px auto;
     background-color: #AB47BC;
     transition: background-color 0.3s ease;
 }

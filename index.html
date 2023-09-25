@@ -8,17 +8,22 @@
     </head>
     <body>
         <header class="header">
+            <!-- High Scores-->
             <h3>View High Scores</h3>
+            <!--Time-->
             <h3 id="time" class="time"></h3>
         </header>
+        <!--Before the quiz-->
         <section id="preQuiz">
             <h1>Coding Quiz Challenge</h1>
             <p>Try to answer the following code-related questions within the time limit
                 Keep in mind that incorrect answers will penalize your score/time 
                 by ten seconds!
             </p>
+        <!--Button-->
             <button id="btn" class="btn"> Start Here</button>
         </section>
+         <!--Quiz questions 1-->
         <section id="quizQuestions" style="display: none;">
             <div>
                 <p>Commonly used data types DO not Include:</p>
@@ -26,8 +31,28 @@
                 <button id="wrong1" class="btn answers">2. booleans</button>
                 <button id="wrong2" class="btn answers">3. alerts</button>
                 <button id="wrong3" class="btn answers">4. numbers </button>
+                <p></p>
             </div>
         </section>
+        <!--Quiz questions 2-->
+        <section id="quizQuestions2" style="display: none;">
+                <div>
+                    <p>The condition in an if / else statement is enclosed with _______.</p>
+                    <button id="wrong2"class="btn answers">1. quotes</button>
+                    <button id="wrong1" class="btn answers">2. curly brackets</button>
+                    <button id="correct" class="btn answers">3. parenthesis</button>
+                    <button id="wrong3" class="btn answers">4. square brackets</button>
+                </div>
+        </section>
+         <!--Displays when user clicks correct answer-->
+        <div id="correctMessage" class="answer" style="display: none;">
+            <p>Correct!</p>
+        </div>
+        <!--Displays when user clicks wrong answer-->
+        <div id="wrongMessage" class="answer" style="display: none;">
+            <p>Wrong!</p>
+        </div>
+         <!--Displays when user runs out of time-->
         <div id="failureMessage" style="display: none;">
         <p>You failed!</p>
     </div>
