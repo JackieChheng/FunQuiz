@@ -1,20 +1,16 @@
-var timerEl = document.getElementById('time');
-var startButton = document.getElementById('btn');
-var quizQuestions = document.getElementById('quizQuestions');
-var quizQuestions2 = document.getElementById('quizQuestions2');
-var preQuiz = document.getElementById('preQuiz');
-var correctButton = document.getElementById('correct'); 
-var wrongMessage = document.getElementById('wrongMessage')
-var correctMessage = document.getElementById('correctMessage')
-var wrongButton1 = document.getElementById('wrong1'); 
-var wrongButton2 = document.getElementById('wrong2');
-var wrongButton3 = document.getElementById('wrong3');
-var failureMessage = document.getElementById('failureMessage');
+const timerEl = document.getElementById('time');
+const startButton = document.getElementById('btn');
+const quizQuestions = document.getElementById('quizQuestions');
+const preQuiz = document.getElementById('preQuiz');
+const correctButton = document.getElementById('correct'); 
+const wrongButtons = [document.getElementById('wrong1'), document.getElementById('wrong2'), document.getElementById('wrong3')];
+const failureMessage = document.getElementById('failureMessage');
 
-var timeLeft = 60;
-var timerInterval;
+let timeLeft = 60;
+let timerInterval;
+let score = 0;
 
-function countdown() {
+function startQuiz() {
     startButton.disabled = true;
     preQuiz.style.display = 'none';
     quizQuestions.style.display = 'block';
@@ -26,7 +22,9 @@ function countdown() {
         } else {
             timerEl.textContent = '';
             clearInterval(timerInterval);
-            showFailureMessage(); // Show the failure message when time runs out
+            showFailureMessage();
+            score = 0;
+            displayScore();
         }
     }, 1000);
 }
@@ -35,31 +33,35 @@ function handleCorrectAnswer() {
     quizQuestions.style.display = 'none';
     quizQuestions2.style.display = 'block';
     correctMessage.style.display = 'block';
+    score += timeLeft;
+    displayScore();
 }
 
 function handleWrongAnswer() {
-    var currentTime = parseInt(timerEl.textContent.split(':')[1]); // Extract remaining seconds
-    currentTime -= 15; // Deduct 15 seconds
-
-    if (currentTime < 0) {
-        currentTime = 0; // Ensure the timer doesn't go negative
-    }
+    const currentTime = parseInt(timerEl.textContent.split(':')[1]);
+    const timeDeduction = 15;
+    const newTime = Math.max(currentTime - timeDeduction, 0);
 
     quizQuestions.style.display = 'none';
     quizQuestions2.style.display = 'block';
     wrongMessage.style.display = 'block';
 
-    timerEl.textContent = 'Time Left: ' + currentTime + 's';
+    timerEl.textContent = 'Time Left: ' + newTime + 's';
 }
 
 function showFailureMessage() {
-    failureMessage.style.display = 'block'; // Display the failure message
+    failureMessage.style.display = 'block';
 }
 
-startButton.addEventListener('click', countdown);
+function displayScore() {
+    const scoreElement = document.getElementById('score');
+    scoreElement.textContent = 'Your Score: ' + score;
+}
 
-correctButton.addEventListener('click', handleCorrectAnswer); // Handle correct answer
+startButton.addEventListener('click', startQuiz);
 
-wrongButton1.addEventListener('click', handleWrongAnswer);
-wrongButton2.addEventListener('click', handleWrongAnswer);
-wrongButton3.addEventListener('click', handleWrongAnswer);
+correctButton.addEventListener('click', handleCorrectAnswer);
+
+wrongButtons.forEach((button) => {
+    button.addEventListener('click', handleWrongAnswer);
+});
