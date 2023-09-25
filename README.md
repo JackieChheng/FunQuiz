@@ -40,7 +40,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![FunQuiz][FunQuiz]](./assets/images/screenshot.png)
+![FunQuiz] (./assets/images/screenshot.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
